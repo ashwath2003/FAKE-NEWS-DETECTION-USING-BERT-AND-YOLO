@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fake News Detection</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="welcome">
+    <h1>Fake News Detection website</h1>
+    <p class="tagline">
+      <span class="glow-red">Fake</span> or <span class="glow-green">fact</span>? Let’s find out fast!
+    </p>    
+    <button class="scroll-btn" onclick="document.getElementById('detection').scrollIntoView({ behavior: 'smooth' });">
+      Get Started ✨
+    </button>
+  </div>
+
+  <div id="detection" class="container">
+    <label for="textInput"><p class="tagline">Enter Text 👇</p></label>
+    <textarea id="textInput" rows="5" placeholder="Paste or type news content here..."></textarea>
+
+    <label for="imageInput"><p class="tagline">Upload Image 👇</p></label>
+    <input type="file" id="imageInput" accept="image/*"/>
+    <img id="imagePreview" src="" alt="Image Preview" style="display:none; max-width:100%; margin-top:10px; border-radius:10px;" />
+
+    <div class="button-group">
+      <button onclick="handlePredict()">Detect 🔍</button>
+      <button onclick="handleReset()">Reset ♻️</button>
+    </div>
+
+    <div id="loadingSpinner" style="display:none; margin-top: 20px; color: #facc15; font-weight: bold;">
+      ⏳ Analyzing your input, please wait...
+    </div>
+
+    <div id="result"></div>
+
+    <button id="downloadJson" style="display:none;" onclick="downloadJSON()">Download Result</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
